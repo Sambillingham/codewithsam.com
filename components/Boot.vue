@@ -1,4 +1,3 @@
-<!-- Please remove this file from your project -->
 <template>
   <div class="terminal">
     <div class="window">
@@ -8,6 +7,7 @@
       </h1>
     </div>
     <div class="overlay" :class="{ 'overlay-active': overlayActive }"></div>
+    <div class="overlay overlay--blue" :class="{ 'overlay-active--blue': overlayActive }"></div>
   </div>
 </template>
 
@@ -18,7 +18,7 @@ export default {
       return {
         overlayActive: false,
         display: [],
-        sequence: ['...','initiating Boot Sequence', '.', '.', '.','----------------------', '>> ', '>> Base systems: CHECK ','>> ', '>> uplink connection: ready ','>> ', '>> Secure access: online ',]
+        sequence: ['...','SB OS BOOT 0.0.ADVNTR.SRVICE', '.', '.', '.','----------------------', '>> ', '>> Base systems: CHECK ','>> ', '>> uplink connection: ready ','>> ', '>> Secure access: online ', '>> ']
       }
   },
   methods: {
@@ -27,9 +27,9 @@ export default {
         const el = this.sequence[i];
         setTimeout(()=> {
           this.display.push(el)
-        }, 50+ ((i+1) * 400) )
+        }, 30+ ((i+1) * 250) )
       }
-      this.finaliseBoot( this.sequence.length * 500 )
+      this.finaliseBoot( this.sequence.length * 300 )
     },
     renderLetters(string) {
       let res = ''
@@ -41,6 +41,7 @@ export default {
     finaliseBoot(delay){
       setTimeout( () => {
         this.overlayActive = true
+        setTimeout( () => this.$nuxt.$emit('booted'), 940 )
       }, delay)
     }
   },
@@ -66,51 +67,12 @@ export default {
     text-transform: uppercase;
     letter-spacing: 0.02rem;
   }
-  .window {
-    /* height: 500px; */
-  }
+
 
 </style>
 
 <style lang="scss">
 
-// .char:nth-child(3n+0) {
-//   animation: char-flash 0.05s ease-in forwards;
-// }
-
-// .char:nth-child(4n+1) {
-//   text-shadow: 0 0 7px rgba(#ccc, 0.7);
-//   animation: char-in 0.1s ease-in-out forwards;
-// }
-// .char:nth-child(5n+2) {
-//   text-shadow: 0 0 32px rgba(#2aff40, 0.9);
-//   animation: char-in 0.2s ease-in-out 0.1s;
-// }
-// .char:nth-child(7n+4) {
-//   color: rgba(#2aff40, 0.8);
-//   text-shadow: 0 0 4px rgba(#2aff40, 0.5);
-//   animation: char-in 0.2s ease-in-out 0s;
-// }
-// .char:nth-child(11n+8) {
-//   color: rgba(#2aff40, 0.8);
-//   text-shadow: 0 0 4px rgba(#2aff40, 0.5);
-//   animation: char-in 0.05s ease-in-out 0.2s;
-// }
-// @for $i from 0 to 6 {
-//   .char:nth-child(25n+#{3+$i}) {
-//     animation: char-1 12s ease-in-out #{-$i*-0.1}s infinite;
-//   }
-// }
-
-
-@keyframes char-1 {
-  @for $t from 0 through 100 {
-    #{$t}% {
-      color: rgba(red, calc( random(40) / 100) + 0.6);
-      text-shadow: 0 0 #{random(4)+8}px rgba(red, calc(random(40) / 100 + 0.5));
-    }
-  }
-}
 
 .char {
   opacity: 0;
@@ -119,7 +81,7 @@ export default {
   .char-#{$a} {
     text-shadow: 0 0 6px rgba(#fafafa, 0.4);
     animation: char-in 0.1s ease-in-out forwards;
-    animation-delay: calc(34 * #{$a}ms);
+    animation-delay: calc(20 * #{$a}ms);
   }
 }
 
@@ -140,9 +102,22 @@ export default {
   }
   
   .overlay-active {
-    animation: overlay 0.8s ease-in forwards;
+    animation: overlay 300ms 100ms ease-in forwards;
+  }
+  .overlay--blue {
+    background: darkblue;
+    backdrop-filter: none;
+  }
+  
+  .overlay-active--blue {
+    animation: flash 10ms 800ms forwards;
   }
 
+  @keyframes flash {
+    100% {
+      opacity: 1;
+    }
+  }
   @keyframes overlay {
     0% {
       opacity: 0;
