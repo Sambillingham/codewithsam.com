@@ -61,8 +61,9 @@
           Sam Billingham. Full-Stack Developer. Making things with code &amp; cameras. Moved to Norway in 2020 after meeting some Arctic surfers.
         </div>
     </section> -->
+    
     <Window name="help" :active="windows.help.active" @mdown="mdown" @mup="mup" @close="closeWindow" :x="windows.help.x" :y="windows.help.y" :title="windows.help.title">
-      <p>Sam Billingham. Full-Stack Developer. Making things with code & cameras. Moved to Norway in 2020 after meeting some Arctic surfers.</p>
+      <p>Sam Billingham. Full-Stack Developer. Making things with code & cameras. You can find me surfing the web || waves. Moved to Norway in 2020 after meeting some Arctic surfers.</p>
     </Window>
     <Window name="weblinks" 
       :active="windows.weblinks.active" 
@@ -72,10 +73,24 @@
       :y="windows.weblinks.y"
       :title="windows.weblinks.title"
     >
-      <p>Github: </p>
-      <p>Twitter: </p>
-      <p>Youtube: </p>
-      <p>Linkedin: </p>
+    
+      <p><a href="https://github.com/sambillingham">github.com/sambillingham</a> </p>
+      <p><a href="https://twitter.com/sam_billingham">twitter.com/sam_billingham</a></p>
+      <p><a href="https://www.linkedin.com/in/sambillingham/">linkedin.com/sambillingham</a></p>
+      <p><a href="https://www.youtube.com/channel/UCQbOitfNmOUGNqc-uYSJlfw">youtube.com/c/sb</a></p>
+      
+      
+    </Window>
+
+    <Window name="globe" 
+      :active="windows.globe.active" 
+      @mdown="mdown" @mup="mup" 
+      @close="closeWindow" 
+      :x="windows.globe.x" 
+      :y="windows.globe.y"
+      :title="windows.globe.title"
+    >
+    <globe></globe>
       
     </Window>
     
@@ -98,10 +113,10 @@
         <img :src="projectIcon" />
         <h2>projects</h2>
       </div>
-      <div class="icon"  @click="openWindow('videos')" >
+      <!-- <div class="icon"  @click="openWindow('videos')" >
         <img :src="videoIcon" />
         <h2>videos</h2>
-      </div>
+      </div> -->
          <div class="icon"  @click="openWindow('weblinks')" >
         <img :src="linksIcon"  class=""/>
         <h2>weblinks.txt</h2>
@@ -119,11 +134,13 @@
 <script>
 import Window from '~/components/Window.vue';
 import Folder from '~/components/Folder.vue';
+import Globe from '~/components/Globe.vue';
 
 import projectIcon from '~/assets/img/projects.png';
 import aboutIcon from '~/assets/img/about.png';
 import videoIcon from '~/assets/img/videos.png';
 import linksIcon from '~/assets/img/links.png';
+
 
 export default {
   name: 'Interface',
@@ -132,6 +149,14 @@ export default {
         projectIcon, videoIcon, aboutIcon, linksIcon,
         activeWindow: null,
         windows: {
+          globe: {
+            active: true,
+            offsetX: 0,
+            offsetY: 0,
+            x: 1090,
+            y: 43,
+            title: 'Hexapod.industries'
+          },
           help: {
             active: true,
             offsetX: 0,
@@ -156,20 +181,13 @@ export default {
             y: 100,
             title: 'Projects'
           },
-          videos: {
-            active: false,
-            offsetX: 0,
-            offsetY: 0,
-            x: 600,
-            y: 300,
-            title: 'Videos'
-          }
         }
       }
   },
   components: {
     Window,
     Folder,
+    Globe,
   },
   methods: {
     mdown(data) {

@@ -1,28 +1,46 @@
 <template>
   <div class="content">
       <div class="list">
-        <p>Good Monkeyz</p>
-        <p>Bldg Blox Inc</p>
-        <p>Steem Blockchain</p>
+        <p @click="folder = 'gm' " :class="{ active : folder == 'gm' }">Good Monkeyz NFT</p>
+        <p @click="folder = 'blerg'" :class="{ active : folder == 'blerg' }">On-Chain SVG</p>
+        <p @click="folder = 'inc'" :class="{ active : folder == 'inc' }">Bldg Blox Inc</p>
+        <p @click="folder = 'steem'" :class="{ active : folder == 'steem' }">Steem Blockchain Dev</p>
+        <p @click="folder = 'cmd'" :class="{ active : folder == 'cmd' }">Command Control</p>
       </div>
       <div class="view">
-            <img src="http://placehold.it/400x400">
-            <div>
-                Merch Drop &amp; PFP Collection
-
-                Desc: 
-                Link: 
-                Stack: Solidity, Ethers.js, Nuxt/Vue, Netlify, Supabase,
+            <div v-if="folder === 'gm' ">
+                <h2>Merch &amp; PFP Collection</h2>
+                <p></p>
+                <a href="https://goodmonkeyz.art">https://goodmonkeyz.art</a>
+                <p>Solidity, Nuxt/Vue, Ethers.js, Netlify, Supabase</p>
             </div>
-      </div>
-        <div class="view">
-            <img src="http://placehold.it/400x400">
-            <div>
-                BLDG Blox Inc - The Building App
-
-                Stack: Solidity, Ethers.js, Nuxt/Vue, Netlify, Supabase,
+              <div v-if="folder === 'blerg' ">
+                <h2>On-Chain SVG Research </h2>
+                <p></p>
+                <a href="https://github.com/Sambillingham/blerg-v2-mvp">github.com/sb/blergs-v2-on-chain</a>
+                <p>Solidity, Next/React, Rainbow/Ethers.js, Vercel, Supabase</p>
             </div>
+            
+            <div v-if="folder === 'inc' ">
+                <h2>The BLDG BLOX inc</h2>
+                <a href="https://twitter.com/bldg_blox">twitter.com/bldg_blox</a>
+                <p>Firebase, Nuxt/Vue</p>
+            </div>
+
+            <div v-if="folder === 'steem' ">
+                <h2>_Steem Blockchain Dapps_</h2>
+                <a href="https://github.com/code-with-sam">github.com/code-with-sam</a>
+                <p>Steem Blockchain Dev Tools</p>
+            </div>
+
+            <div v-if="folder === 'cmd' ">
+                <h2>Command Control</h2>
+                <a href="http://command-control.sambillingham.com">https://cmd.sb.com</a>
+                <p>Node.js, Arduino, MQTT</p>
+            </div>
+            
       </div>
+
       
   </div>
 </template>
@@ -33,6 +51,7 @@ export default {
   name: 'Folder',
   data: () =>  {
     return {
+      folder: 'gm'
     }
   },
 
@@ -50,11 +69,37 @@ export default {
 }
 .list {
     padding: 2rem;
+    cursor: pointer;
+
+    p:hover, .active {
+      transition: 200ms all; 
+
+      &::before {
+        content: '> '
+      }
+      background: #ccc;
+      color: #333;
+      font-weight: 600;
+    }
 }
 .view {
     border-left: solid 1px #ccc;
     flex-basis: 50%;
     padding: 2rem;
+    flex-grow: 1;
 }
-
+.view h2 {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  
+}
+.view a {
+  display: inline-block;
+  padding: 0.4rem 0 0;
+  color: #ccc;
+  border-bottom: dotted 1px #ccc;
+  text-decoration: none;
+}
 </style>

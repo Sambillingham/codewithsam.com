@@ -47,13 +47,14 @@ export default {
     min-width: 280px;
     width: 300px;
     display: none;
+    overflow: hidden;
 }  
 
 .box.active {
   display: block;
 }
 .box.folder {
-  width: 600px;
+  width: 680px;
 
   .content {
     padding: 0;
@@ -86,5 +87,15 @@ export default {
 
 .content p {
   margin: 0;
+}
+.content a {
+  display: inline-block;
+  padding: 0.4rem 0 0;
+  color: #ccc;
+  border-bottom: dotted 1px #ccc;
+  text-decoration: none;
+}
+.content p:first-of-type a{
+  padding: 0;
 }
 </style>
