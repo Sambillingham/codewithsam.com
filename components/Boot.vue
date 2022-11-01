@@ -18,24 +18,30 @@ export default {
       return {
         overlayActive: false,
         display: [],
-        sequence: ['...','SB OS BOOT 0.0.ADVNTR.SRVICE', '.', '.', '.','----------------------', '>> ', '>> Base systems: CHECK ','>> ', '>> uplink connection: ready ','>> ', '>> Secure access: online ', '>> ']
+        sequence: [
+          ':::: V.M.0.0121 ::::',
+          ':::::::████   ███  ███',
+          '>> [ STATUS █████ █████  ]',
+          '>> ██████ ████ ',
+          '::::',
+          '::::',
+          '::::',
+          '::::INIT [WIP]',
+        ]
       }
   },
   methods: {
     boot(){
       for (let i = 0; i < this.sequence.length; i++) {
-        const el = this.sequence[i];
         setTimeout(()=> {
-          this.display.push(el)
+          this.display.push(this.sequence[i])
         }, 30+ ((i+1) * 250) )
       }
       this.finaliseBoot( this.sequence.length * 300 )
     },
     renderLetters(string) {
       let res = ''
-      console.log(string);
       string.split('').forEach( (l,i) => res = res + `<span class="char char-${i}">${l}</span>`)
-      console.log(res)
       return res;
     },
     finaliseBoot(delay){
