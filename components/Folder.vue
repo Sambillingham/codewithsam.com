@@ -15,9 +15,10 @@
                 <p>Solidity, Nuxt/Vue, Ethers.js, Netlify, Supabase</p>
             </div>
               <div v-if="folder === 'blerg' ">
-                <h2>On-Chain SVG Research </h2>
+                <h2>On-Chain SVG </h2>
                 <p></p>
-                <a href="https://github.com/Sambillingham/blerg-v2-mvp">github.com/sb/blergs-v2-on-chain</a>
+                <a href="https://github.com/Sambillingham/pixel-grid-svg-renderer">gh.com/sb/pixel-grid-svg-renderer</a>
+                <a href="https://github.com/Sambillingham/blerg-v2-mvp">gh.com/sb/blergs-v2-on-chain</a>
                 <p>Solidity, Next/React, Rainbow/Ethers.js, Vercel, Supabase</p>
             </div>
             
