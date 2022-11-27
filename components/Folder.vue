@@ -14,7 +14,7 @@
                 <a href="https://goodmonkeyz.art">https://goodmonkeyz.art</a>
                 <p>Solidity, Nuxt/Vue, Ethers.js, Netlify, Supabase</p>
             </div>
-              <div v-if="folder === 'blerg' ">
+            <div v-if="folder === 'blerg' ">
                 <h2>On-Chain SVG </h2>
                 <p></p>
                 <a href="https://github.com/Sambillingham/pixel-grid-svg-renderer">gh.com/sb/pixel-grid-svg-renderer</a>
@@ -52,7 +52,7 @@ export default {
   name: 'Folder',
   data: () =>  {
     return {
-      folder: 'gm'
+      folder: 'blerg'
     }
   },
 
