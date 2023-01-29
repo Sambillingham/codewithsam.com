@@ -7,7 +7,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'sb.com-2',
+    title: 'codewithsam - hexapod terminal -- 0001',
     htmlAttrs: {
       lang: 'en'
     },

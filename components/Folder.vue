@@ -1,43 +1,59 @@
 <template>
   <div class="content">
       <div class="list">
-        <p @click="folder = 'gm' " :class="{ active : folder == 'gm' }">Good Monkeyz NFT</p>
-        <p @click="folder = 'blerg'" :class="{ active : folder == 'blerg' }">On-Chain SVG</p>
+        <p @click="folder = 'blerg'" :class="{ active : folder == 'blerg' }">Custon SVG Renderer</p>
+        <p @click="folder = 'gm' " :class="{ active : folder == 'gm' }">Good Monkeyz</p>
+        <p @click="folder = 'trait'" :class="{ active : folder == 'trait' }">Traits. On-Chain (EVM)</p>
         <p @click="folder = 'inc'" :class="{ active : folder == 'inc' }">Bldg Blox Inc</p>
-        <p @click="folder = 'steem'" :class="{ active : folder == 'steem' }">Steem Blockchain Dev</p>
+        <p @click="folder = 'steem'" :class="{ active : folder == 'steem' }">Steem Blockchain</p>
         <p @click="folder = 'cmd'" :class="{ active : folder == 'cmd' }">Command Control</p>
       </div>
       <div class="view">
             <div v-if="folder === 'gm' ">
                 <h2>Merch &amp; PFP Collection</h2>
-                <p></p>
+                <p>On-chain verifiable burn-to-order limited edition merch. 2k/2k PFP drop with full provenance and custom minting experience</p>
+                <p>Solidity, IPFS, Nuxt/Vue, Ethers.js, Netlify, Supabase</p>
                 <a href="https://goodmonkeyz.art">https://goodmonkeyz.art</a>
-                <p>Solidity, Nuxt/Vue, Ethers.js, Netlify, Supabase</p>
             </div>
+            
             <div v-if="folder === 'blerg' ">
-                <h2>On-Chain SVG </h2>
-                <p></p>
-                <a href="https://github.com/Sambillingham/pixel-grid-svg-renderer">gh.com/sb/pixel-grid-svg-renderer</a>
-                <a href="https://github.com/Sambillingham/blerg-v2-mvp">gh.com/sb/blergs-v2-on-chain</a>
+                <h2>Custon svg renderer (EVM)</h2>
+                <p>Problem - Deploying on-chain assets to eth can be exepensive.</p>
+                <p>Solution - Developed a custom 48x48 4colour on-chain SVG renderer.</p>
                 <p>Solidity, Next/React, Rainbow/Ethers.js, Vercel, Supabase</p>
+                <a href="https://github.com/Sambillingham/pixel-grid-svg-renderer">pixel-grid-svg-renderer</a>
+            </div>
+            
+            <div v-if="folder === 'trait' ">
+              <h2>On-chain Swapable Trait EVM NFTs</h2>
+              <a href="https://www.notion.so/Traits-Whitepaper-c5f81db5a9b84c73ad2e89c2697eb77b">Whitepaper</a>
+              <p>- Developed a proof of concept for the Blergs DAO</p>
+              <a href="https://github.com/Sambillingham/blerg-v2-mvp">https://gh.com/sb/blerg-v2-mvp</a>
+              <p>Solidity/EVM</p>
             </div>
             
             <div v-if="folder === 'inc' ">
                 <h2>The BLDG BLOX inc</h2>
-                <a href="https://twitter.com/bldg_blox">twitter.com/bldg_blox</a>
-                <p>Firebase, Nuxt/Vue</p>
+                <p>Neighborhood collaboration platform. Bringing stakeholders together for good. <p>
+                <p>Founding Engineer - Firebase (Realtime Database). Nuxt.js x Serverless/Firebase Backend</p>
+
+                <a href="https://twitter.com/bldg_blox">@bldg_blox</a>
             </div>
 
             <div v-if="folder === 'steem' ">
-                <h2>_Steem Blockchain Dapps_</h2>
-                <a href="https://github.com/code-with-sam">github.com/code-with-sam</a>
-                <p>Steem Blockchain Dev Tools</p>
+                <h2>_Steem Blockchain_</h2>
+                <p>Building for the STEEM Proof-of-Brain distribution mechanics.</p>
+                <a href="https://github.com/code-with-sam/finallycomments">Finally Comments </a>
+                <p>- Disqus comments system with STEEM backend </p>
+                <a href="https://github.com/code-with-sam/finallynetwork">Finally Network</a>
+                <p> - Blog Engine with STEEM backend</p>
             </div>
 
             <div v-if="folder === 'cmd' ">
                 <h2>Command Control</h2>
-                <a href="http://command-control.sambillingham.com">https://cmd.sb.com</a>
-                <p>Node.js, Arduino, MQTT</p>
+                <p>AN INTERACTIVE PHYSICAL COMPUTING GAME <p>
+                <p>Node.js, Arduino, MQTT, Websockets</p>
+                <a href="http://command-control.sambillingham.com" target="_blank">https://cmd.sb.com</a>
             </div>
             
       </div>
