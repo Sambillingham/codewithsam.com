@@ -1,6 +1,7 @@
 <template>
   <div class="content">
       <div class="list">
+        <p @click="folder = 'hex'" :class="{ active : folder == 'hex' }">Hexapod.industries</p>
         <p @click="folder = 'blerg'" :class="{ active : folder == 'blerg' }">Custon SVG Renderer</p>
         <p @click="folder = 'gm' " :class="{ active : folder == 'gm' }">Good Monkeyz</p>
         <p @click="folder = 'trait'" :class="{ active : folder == 'trait' }">Traits. On-Chain (EVM)</p>
@@ -9,6 +10,12 @@
         <p @click="folder = 'cmd'" :class="{ active : folder == 'cmd' }">Command Control</p>
       </div>
       <div class="view">
+            <div v-if="folder === 'hex' ">
+                <h2>Leading R&amp;D into Meshionics</h2>
+                <p>A researcher focusing on Holofact production and exploration.</p>
+                <a href="https://hexapod.industries">https://hexapod.industries</a>
+            </div>
+
             <div v-if="folder === 'gm' ">
                 <h2>Merch &amp; PFP Collection</h2>
                 <p>On-chain verifiable burn-to-order limited edition merch. 2k/2k PFP drop with full provenance and custom minting experience</p>
