@@ -15,7 +15,8 @@
                 <p>A researcher focusing on Holofact production and exploration.</p>
                 <a href="https://hexapod.industries">https://hexapod.industries</a>
                 <a href="https://meshionics.com">https://meshionics.com</a>
-                <a href="https://myth05.net">https://myth05.net (may set your computer on fire)</a>
+                <a href="https://myth05.net">https://myth05.net</a>
+                <span>**may set your computer on fire)**</span>
             </div>
 
             <div v-if="folder === 'gm' ">
