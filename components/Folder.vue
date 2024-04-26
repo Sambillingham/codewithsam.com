@@ -77,7 +77,7 @@ export default {
   name: 'Folder',
   data: () =>  {
     return {
-      folder: 'blerg'
+      folder: 'hex'
     }
   },
 
